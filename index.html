@@ -5,8 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ARCH · Catálogo</title>
   <meta name="description" content="Catálogo de joyería ARCH — elegancia importada desde EE.UU. | Collares, Anillos, Pulseras y Aros." />
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
   <meta property="og:title" content="ARCH · Catálogo">
   <meta property="og:description" content="Joyería importada — elegancia, calidad y envíos a todo el país.">
   <meta property="og:image" content="https://archargentina.github.io/catalogoarch/assets/hero_arch_only.png">
@@ -18,8 +23,8 @@
       --bg:#F5F5DC;
       --ink:#222;
       --radius:14px;
-      --shadow:0 8px 22px rgba(0,0,0,.06);
-      --shadow-hover:0 12px 28px rgba(0,0,0,.08);
+      --shadow:0 6px 14px rgba(0,0,0,.06);
+      --shadow-hover:0 10px 22px rgba(0,0,0,.10);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -27,14 +32,15 @@
     /* ===== FONDO ÚNICO DE PÁGINA ===== */
     body{
       margin:0; color:var(--ink); font-family:'Spectral', serif;
-      background:url('assets/bg-arch.jpg') center/cover no-repeat fixed; /* <-- subí esta imagen */
+      /* Quitamos 'fixed' para evitar repaints costosos en scroll */
+      background:url('assets/bg-arch.jpg') center/cover no-repeat;
       position:relative;
     }
-    /* Velo suave para uniformar y mejorar lectura */
+    /* Velo suave para uniformar y mejorar lectura (sin backdrop-filter) */
     body::before{
       content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
       background:rgba(255,255,245,.50);
-      backdrop-filter:saturate(1.05) blur(1px);
+      /* eliminado: backdrop-filter */
     }
 
     /* ===== Banner ===== */
@@ -51,8 +57,8 @@
     /* ===== Nav ===== */
     .topnav{
       position:sticky;top:0;z-index:10;
-      backdrop-filter:saturate(1.2) blur(6px);
-      background:rgba(255,255,245,.72);
+      /* eliminado: backdrop-filter para mejorar performance */
+      background:rgba(255,255,245,.92);
       border-bottom:1px solid rgba(0,0,0,.06);
     }
     .topnav .wrap{
@@ -67,7 +73,7 @@
 
     /* ===== Secciones ===== */
     .section{
-      background:transparent;            /* sin patrón repetido */
+      background:transparent;
       padding:56px 0 64px;
       scroll-margin-top:72px;
     }
@@ -85,6 +91,9 @@
       border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;
       box-shadow:var(--shadow);
       transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      /* Virtualización ligera */
+      content-visibility:auto;
+      contain-intrinsic-size:1px 460px;
     }
     .card:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:rgba(0,0,0,.12)}
     .card img{
@@ -112,12 +121,12 @@
       display:flex; align-items:center; justify-content:center;
       background:#fff; color:#111;
       border:1px solid rgba(0,0,0,.12);
-      box-shadow:0 10px 24px rgba(0,0,0,.14);
+      box-shadow:0 8px 18px rgba(0,0,0,.16);
       text-decoration:none;
       transition:transform .15s ease, box-shadow .15s ease;
     }
     .fab svg{width:26px;height:26px;fill:currentColor}
-    .fab:hover{transform:translateY(-2px); box-shadow:0 12px 28px rgba(0,0,0,.18)}
+    .fab:hover{transform:translateY(-2px); box-shadow:0 12px 24px rgba(0,0,0,.18)}
     .fab:active{transform:translateY(-1px)}
     @media (max-width:480px){.fab-container{ right:16px; bottom:20px; gap:10px }}
 
@@ -126,6 +135,12 @@
     }
     footer a{color:var(--prim);text-decoration:none;font-weight:600}
     footer a:hover{text-decoration:underline}
+
+    /* Respeto a usuarios con reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      .card, .fab{ transition: none !important; }
+      .card:hover{ transform:none !important; }
+    }
   </style>
 </head>
 <body>
@@ -151,21 +166,21 @@
         <article class="card">
           <img loading="lazy" decoding="async"
                src="https://archargentina.github.io/catalogoarch/assets/collarminimal.png"
-               alt="Collar Minimal ARCH">
+               alt="Collar Minimal ARCH" width="800" height="800">
           <div class="info">
             <h3>Collar Minimal</h3>
             <p class="price">$15.000</p>
-            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Collar%20Minimal%20de%20ARCH">Comprar</a>
+            <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Collar%20Minimal%20de%20ARCH">Comprar</a>
           </div>
         </article>
         <article class="card">
           <img loading="lazy" decoding="async"
                src="https://archargentina.github.io/catalogoarch/assets/collares2.png"
-               alt="Collar Anillo Dorado ARCH">
+               alt="Collar Anillo Dorado ARCH" width="800" height="800">
           <div class="info">
             <h3>Collar Anillo Dorado</h3>
             <p class="price">$25.500</p>
-            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Collar%20Anillo%20Dorado%20de%20ARCH">Comprar</a>
+            <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Collar%20Anillo%20Dorado%20de%20ARCH">Comprar</a>
           </div>
         </article>
       </div>
@@ -180,21 +195,21 @@
         <article class="card">
           <img loading="lazy" decoding="async"
                src="https://archargentina.github.io/catalogoarch/assets/anillos.png"
-               alt="Set de Anillos ARCH">
+               alt="Set de Anillos ARCH" width="800" height="800">
           <div class="info">
             <h3>Set de Anillos</h3>
             <p class="price">$12.000</p>
-            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20los%20Anillos%20de%20ARCH">Comprar</a>
+            <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20los%20Anillos%20de%20ARCH">Comprar</a>
           </div>
         </article>
         <article class="card">
           <img loading="lazy" decoding="async"
                src="https://archargentina.github.io/catalogoarch/assets/anillos2.png"
-               alt="Anillo Plata 925 ARCH">
+               alt="Anillo Plata 925 ARCH" width="800" height="800">
           <div class="info">
             <h3>Anillo Plata 925</h3>
             <p class="price">$13.500</p>
-            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Anillo%20Plata%20925%20de%20ARCH">Comprar</a>
+            <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Anillo%20Plata%20925%20de%20ARCH">Comprar</a>
           </div>
         </article>
       </div>
@@ -209,21 +224,21 @@
         <article class="card">
           <img loading="lazy" decoding="async"
                src="https://archargentina.github.io/catalogoarch/assets/pulserafina.png"
-               alt="Pulsera Fina ARCH">
+               alt="Pulsera Fina ARCH" width="800" height="800">
           <div class="info">
             <h3>Pulsera Fina</h3>
             <p class="price">$9.500</p>
-            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20la%20Pulsera%20Fina%20de%20ARCH">Comprar</a>
+            <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20la%20Pulsera%20Fina%20de%20ARCH">Comprar</a>
           </div>
         </article>
         <article class="card">
           <img loading="lazy" decoding="async"
                src="https://archargentina.github.io/catalogoarch/assets/pulseras2.png"
-               alt="Pulsera con Joyas ARCH">
+               alt="Pulsera con Joyas ARCH" width="800" height="800">
           <div class="info">
             <h3>Pulsera con Joyas 0 Chucu</h3>
             <p class="price">$15.800.000</p>
-            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20la%20Pulsera%20con%20Joyas%20de%20ARCH">Comprar</a>
+            <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20la%20Pulsera%20con%20Joyas%20de%20ARCH">Comprar</a>
           </div>
         </article>
       </div>
@@ -238,21 +253,21 @@
         <article class="card">
           <img loading="lazy" decoding="async"
                src="https://archargentina.github.io/catalogoarch/assets/aros1.png"
-               alt="Aros Dorados ARCH">
+               alt="Aros Dorados ARCH" width="800" height="800">
           <div class="info">
             <h3>Aros Dorados</h3>
             <p class="price">$10.000</p>
-            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20los%20Aros%20Dorados%20de%20ARCH">Comprar</a>
+            <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20los%20Aros%20Dorados%20de%20ARCH">Comprar</a>
           </div>
         </article>
         <article class="card">
           <img loading="lazy" decoding="async"
                src="https://archargentina.github.io/catalogoarch/assets/aros2.png"
-               alt="Aros con Joyas ARCH">
+               alt="Aros con Joyas ARCH" width="800" height="800">
           <div class="info">
             <h3>Aros con Joyas Masivos Bro</h3>
             <p class="price">$1.100.000</p>
-            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20los%20Aros%20con%20Joyas%20de%20ARCH">Comprar</a>
+            <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20los%20Aros%20con%20Joyas%20de%20ARCH">Comprar</a>
           </div>
         </article>
       </div>
@@ -261,8 +276,8 @@
 
   <footer>
     © 2025 ARCH — Envíos a todo el país · WhatsApp
-    <a target="_blank" href="https://wa.me/5491165626328">+54 9 11 6562-6328</a> ·
-    Instagram <a target="_blank" href="https://www.instagram.com/arch.argentina">@arch.argentina</a>
+    <a target="_blank" rel="noopener" href="https://wa.me/5491165626328">+54 9 11 6562-6328</a> ·
+    Instagram <a target="_blank" rel="noopener" href="https://www.instagram.com/arch.argentina">@arch.argentina</a>
   </footer>
 
   <!-- FABs blanco/negro -->
@@ -280,16 +295,22 @@
   </div>
 
   <script>
-    // Animación scroll del banner (reduce y desvanece)
+    // Animación scroll del banner con rAF (evita escrituras durante el evento de scroll)
     (function(){
       const hero = document.getElementById('hero');
       const clamp = (n,min,max)=>Math.min(Math.max(n,min),max);
-      const onScroll = () => {
+      let ticking = false;
+
+      const update = () => {
         const p = clamp(window.scrollY / 300, 0, 1);
         hero.style.transform = `scale(${1 - p*0.12})`;
         hero.style.opacity   = String(1 - p*0.5);
+        ticking = false;
       };
-      window.addEventListener('scroll', onScroll, { passive:true });
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) { requestAnimationFrame(update); ticking = true; }
+      }, { passive:true });
     })();
 
     // Volver al tope al recargar
