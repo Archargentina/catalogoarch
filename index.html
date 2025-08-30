@@ -5,17 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ARCH · Catálogo</title>
   <meta name="description" content="Catálogo de joyería ARCH — elegancia importada desde EE.UU." />
+  <!-- Fuente Spectral -->
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root{
       --prim:#556B2F;         /* verde oliva */
       --bg:#F5F5DC;           /* beige */
       --ink:#222;
       --radius:16px;
-      --shadow:0 10px 24px rgba(0,0,0,.12);
-      --shadow-sm:0 6px 16px rgba(0,0,0,.10);
+      --shadow:0 12px 28px rgba(0,0,0,.10);
+      --shadow-sm:0 6px 18px rgba(0,0,0,.08);
     }
     *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:'Spectral', serif;
+    }
 
     /* Banner */
     .hero{
@@ -23,29 +30,45 @@
       background:url('assets/hero_arch_only.png') center/cover no-repeat;
       transform-origin:center top;will-change:transform,opacity;
     }
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.04))}
+    .hero::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.05));
+    }
 
     /* Catálogo */
-    .catalogo{background:url('assets/fondo.png') center/cover repeat;padding:36px 0 48px}
-    .wrap{max-width:1200px;margin:0 auto;padding:0 18px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px}
+    .catalogo{
+      background:url('assets/fondo.png') center/cover repeat;
+      padding:50px 0 60px;
+    }
+    .wrap{max-width:1250px;margin:0 auto;padding:0 22px}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:44px; /* más separación entre productos */
+    }
 
     .card{
       background:#fff;border:none;border-radius:var(--radius);
-      box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:transform .18s ease, box-shadow .18s ease
+      box-shadow:var(--shadow);overflow:hidden;
+      display:flex;flex-direction:column;
+      transition:transform .18s ease, box-shadow .18s ease;
+      padding-bottom:8px;
     }
-    .card:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm)}
-    .card img{width:100%;height:280px;object-fit:cover;background:#fafafa;display:block}
-    .info{padding:16px 16px 18px}
-    .info h3{margin:0 0 8px;font-size:17px}
-    .price{margin:0 0 12px;color:var(--prim);font-weight:700}
+    .card:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm)}
+    .card img{width:100%;height:300px;object-fit:cover;background:#fafafa;display:block}
+    .info{padding:20px}
+    .info h3{margin:0 0 12px;font-size:18px;font-weight:600}
+    .price{margin:0 0 14px;color:var(--prim);font-weight:600;font-size:16px}
     .cta{
       display:inline-block;background:var(--prim);color:#fff;text-decoration:none;
-      padding:10px 14px;border-radius:10px;font-weight:600
+      padding:11px 16px;border-radius:10px;font-weight:600;letter-spacing:.3px
     }
-    .cta:hover{filter:brightness(.95)}
+    .cta:hover{filter:brightness(.93)}
 
-    footer{background:#eee;text-align:center;padding:18px;line-height:1.6;font-size:13px}
+    footer{
+      background:#eee;text-align:center;padding:22px;
+      line-height:1.6;font-size:14px;font-family:'Spectral', serif
+    }
     footer a{color:var(--prim);text-decoration:none;font-weight:600}
     footer a:hover{text-decoration:underline}
   </style>
@@ -65,7 +88,7 @@
           <img src="https://archargentina.github.io/catalogoarch/assets/anillos.png" alt="Anillos ARCH">
           <div class="info">
             <h3>Anillos</h3>
-            <p class="price">$15.000</p>
+            <p class="price">$12.000</p>
             <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20los%20Anillos%20de%20ARCH">Comprar</a>
           </div>
         </article>
@@ -105,7 +128,7 @@
           <img src="assets/producto5.jpg" alt="Producto 5 ARCH">
           <div class="info">
             <h3>Producto 5</h3>
-            <p class="price">$9.000</p>
+            <p class="price">$0.000</p>
             <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Producto%205%20de%20ARCH">Comprar</a>
           </div>
         </article>
@@ -115,7 +138,7 @@
           <img src="assets/producto6.jpg" alt="Producto 6 ARCH">
           <div class="info">
             <h3>Producto 6</h3>
-            <p class="price">$8.000</p>
+            <p class="price">$0.000</p>
             <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Producto%206%20de%20ARCH">Comprar</a>
           </div>
         </article>
@@ -125,7 +148,7 @@
           <img src="assets/producto7.jpg" alt="Producto 7 ARCH">
           <div class="info">
             <h3>Producto 7</h3>
-            <p class="price">$12.000</p>
+            <p class="price">$0.000</p>
             <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Producto%207%20de%20ARCH">Comprar</a>
           </div>
         </article>
