@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ARCH · Joyas Importadas</title>
-  <meta name="description" content="Catálogo de joyería importada desde Estados Unidos · ARCH" />
+  <title>ARCH</title>
+  <meta name="description" content="Catálogo ARCH — Joyería importada desde Estados Unidos" />
   <style>
     :root { --prim:#556B2F; --bg:#f5f5dc; --text:#222; }
     *{box-sizing:border-box;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial}
     body{margin:0;background:var(--bg);color:var(--text)}
-    header{background:#556B2F;color:#fff;padding:28px 16px;text-align:center}
-    header h1{margin:0;font-size:28px;letter-spacing:0.5px}
-    header p{margin:6px 0 0;opacity:.9}
+    header{background:#556B2F;color:#fff;padding:24px 16px;text-align:center}
+    .brand img{height:36px}
     .wrap{max-width:1100px;margin:0 auto;padding:20px}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
     .card{background:#fff;border:1px solid #eee;border-radius:16px;box-shadow:0 2px 6px rgba(0,0,0,.06);overflow:hidden;display:flex;flex-direction:column}
@@ -21,65 +20,101 @@
     .price{color:#556B2F;font-weight:700;margin:0 0 8px}
     .cta{display:inline-block;background:#556B2F;color:#fff;text-decoration:none;padding:10px 12px;border-radius:10px;font-weight:600}
     .cta:hover{filter:brightness(.95)}
-    footer{padding:24px 16px;text-align:center;font-size:12px;background:#eee;margin-top:24px}
-    .brand{display:flex;align-items:center;gap:10px;justify-content:center}
-    .brand img{height:28px}
+    footer{padding:24px 16px;text-align:center;font-size:13px;background:#eee;margin-top:24px;line-height:1.6}
+    footer a{color:#556B2F;text-decoration:none;font-weight:600}
+    footer a:hover{text-decoration:underline}
   </style>
 </head>
 <body>
   <header>
     <div class="brand">
-      <img src="assets/logo.png" alt="ARCH" onerror="this.style.display='none'">
-      <h1>ARCH · Joyas Importadas</h1>
+      <img src="assets/logo.png" alt="ARCH">
     </div>
-    <p>Elegancia importada desde Estados Unidos · Envíos a todo el país</p>
   </header>
 
   <main class="wrap">
     <section class="grid">
-      <!-- PRODUCTO 1 -->
+      <!-- Products injected -->
+
       <article class="card">
-        <img src="assets/placeholder1.jpg" alt="Collar Ónix">
+        <img src="assets/collar-onix.jpg" alt="Collar Ónix">
         <div class="info">
           <h3>Collar Ónix</h3>
-          <p class="price">$15.000</p>
-          <a class="cta" target="_blank"
-             href="https://wa.me/54911XXXXXXXXX?text=Hola!%20Quiero%20comprar%20el%20Collar%20%C3%93nix%20de%20ARCH">
-             Comprar por WhatsApp
-          </a>
+          <p class="price">$15,000</p>
+          <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola%21%20Quiero%20comprar%20Collar%20%C3%93nix%20de%20ARCH">Comprar por WhatsApp</a>
         </div>
       </article>
-
-      <!-- PRODUCTO 2 -->
+    
       <article class="card">
-        <img src="assets/placeholder2.jpg" alt="Aros Perla">
+        <img src="assets/aros-perla.jpg" alt="Aros Perla">
         <div class="info">
           <h3>Aros Perla</h3>
-          <p class="price">$12.000</p>
-          <a class="cta" target="_blank"
-             href="https://wa.me/54911XXXXXXXXX?text=Hola!%20Me%20interesan%20los%20Aros%20Perla%20de%20ARCH">
-             Comprar por WhatsApp
-          </a>
+          <p class="price">$12,000</p>
+          <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola%21%20Quiero%20comprar%20Aros%20Perla%20de%20ARCH">Comprar por WhatsApp</a>
         </div>
       </article>
-
-      <!-- PRODUCTO 3 -->
+    
       <article class="card">
-        <img src="assets/placeholder3.jpg" alt="Pulsera Minimal">
+        <img src="assets/pulsera-minimal.jpg" alt="Pulsera Minimal">
         <div class="info">
           <h3>Pulsera Minimal</h3>
-          <p class="price">$9.500</p>
-          <a class="cta" target="_blank"
-             href="https://wa.me/54911XXXXXXXXX?text=Hola!%20Quiero%20saber%20m%C3%A1s%20de%20la%20Pulsera%20Minimal%20de%20ARCH">
-             Comprar por WhatsApp
-          </a>
+          <p class="price">$9,500</p>
+          <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola%21%20Quiero%20comprar%20Pulsera%20Minimal%20de%20ARCH">Comprar por WhatsApp</a>
         </div>
       </article>
+    
+      <article class="card">
+        <img src="assets/anillo-plata.jpg" alt="Anillo Plata 925">
+        <div class="info">
+          <h3>Anillo Plata 925</h3>
+          <p class="price">$13,500</p>
+          <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola%21%20Quiero%20comprar%20Anillo%20Plata%20925%20de%20ARCH">Comprar por WhatsApp</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <img src="assets/collar-perla.jpg" alt="Collar Perla Natural">
+        <div class="info">
+          <h3>Collar Perla Natural</h3>
+          <p class="price">$18,500</p>
+          <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola%21%20Quiero%20comprar%20Collar%20Perla%20Natural%20de%20ARCH">Comprar por WhatsApp</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <img src="assets/aros-hoop.jpg" alt="Aros Hoop Dorados">
+        <div class="info">
+          <h3>Aros Hoop Dorados</h3>
+          <p class="price">$11,000</p>
+          <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola%21%20Quiero%20comprar%20Aros%20Hoop%20Dorados%20de%20ARCH">Comprar por WhatsApp</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <img src="assets/tobillera-olivia.jpg" alt="Tobillera Olivia">
+        <div class="info">
+          <h3>Tobillera Olivia</h3>
+          <p class="price">$9,800</p>
+          <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola%21%20Quiero%20comprar%20Tobillera%20Olivia%20de%20ARCH">Comprar por WhatsApp</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <img src="assets/set-pulsera-anillo.jpg" alt="Set Pulsera + Anillo">
+        <div class="info">
+          <h3>Set Pulsera + Anillo</h3>
+          <p class="price">$21,000</p>
+          <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola%21%20Quiero%20comprar%20Set%20Pulsera%20%2B%20Anillo%20de%20ARCH">Comprar por WhatsApp</a>
+        </div>
+      </article>
+    
     </section>
   </main>
 
   <footer>
-    © 2025 ARCH · Joyas Importadas — Instagram: @arch.joyas
+    © 2025 ARCH — Envíos a todo el país<br>
+    WhatsApp: <a target="_blank" href="https://wa.me/5491165626328">+54 9 11 6562-6328</a><br>
+    Instagram: <a target="_blank" href="https://www.instagram.com/arch.argentina?igsh=ZHl3bW41dG56bnAz">@arch.argentina</a>
   </footer>
 </body>
 </html>
