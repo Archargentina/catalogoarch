@@ -17,10 +17,9 @@
       --shadow-sm:0 6px 18px rgba(0,0,0,.08);
     }
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
-      margin:0;
-      background:var(--bg);
-      color:var(--ink);
+      margin:0;background:var(--bg);color:var(--ink);
       font-family:'Spectral', serif;
     }
 
@@ -30,29 +29,46 @@
       background:url('assets/hero_arch_only.png') center/cover no-repeat;
       transform-origin:center top;will-change:transform,opacity;
     }
-    .hero::after{
-      content:"";position:absolute;inset:0;
-      background:linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.05));
-    }
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.05))}
 
-    /* Catálogo */
-    .catalogo{
+    /* Nav de categorías */
+    .topnav{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter:saturate(1.2) blur(4px);
+      background:rgba(245,245,220,.85); /* beige translúcido */
+      border-bottom:1px solid #e6e6d6;
+    }
+    .topnav .wrap{
+      display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center;
+      padding:10px 16px;
+    }
+    .topnav a{
+      color:var(--prim);text-decoration:none;font-weight:600;letter-spacing:.2px;
+      padding:8px 10px;border-radius:10px;
+    }
+    .topnav a:hover{background:#e9ead6}
+
+    /* Secciones */
+    .section{
       background:url('assets/fondo.png') center/cover repeat;
-      padding:50px 0 60px;
+      padding:56px 0 64px;
     }
     .wrap{max-width:1250px;margin:0 auto;padding:0 22px}
+    .sec-title{
+      margin:0 0 22px;text-align:center;color:#2b2b2b;font-size:24px;font-weight:600;
+      letter-spacing:.3px
+    }
+
+    /* Grid y cards */
     .grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:44px; /* más separación entre productos */
+      gap:44px; /* más separación */
     }
-
     .card{
       background:#fff;border:none;border-radius:var(--radius);
-      box-shadow:var(--shadow);overflow:hidden;
-      display:flex;flex-direction:column;
-      transition:transform .18s ease, box-shadow .18s ease;
-      padding-bottom:8px;
+      box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;
+      transition:transform .18s ease, box-shadow .18s ease; padding-bottom:8px;
     }
     .card:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm)}
     .card img{width:100%;height:300px;object-fit:cover;background:#fafafa;display:block}
@@ -66,8 +82,7 @@
     .cta:hover{filter:brightness(.93)}
 
     footer{
-      background:#eee;text-align:center;padding:22px;
-      line-height:1.6;font-size:14px;font-family:'Spectral', serif
+      background:#eee;text-align:center;padding:22px;line-height:1.6;font-size:14px
     }
     footer a{color:var(--prim);text-decoration:none;font-weight:600}
     footer a:hover{text-decoration:underline}
@@ -78,12 +93,46 @@
   <!-- Banner -->
   <header class="hero" id="hero"></header>
 
-  <!-- Catálogo -->
-  <section class="catalogo">
+  <!-- Nav de categorías -->
+  <nav class="topnav">
     <div class="wrap">
-      <div class="grid">
+      <a href="#collares">Collares</a>
+      <a href="#anillos">Anillos</a>
+      <a href="#pulseras">Pulseras</a>
+      <a href="#aros">Aros</a>
+    </div>
+  </nav>
 
-        <!-- Producto 1 -->
+  <!-- Sección: Collares -->
+  <section class="section" id="collares">
+    <div class="wrap">
+      <h2 class="sec-title">Collares</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="assets/collares1.jpg" alt="Collar Minimal ARCH">
+          <div class="info">
+            <h3>Collar Minimal</h3>
+            <p class="price">$15.000</p>
+            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Collar%20Minimal%20de%20ARCH">Comprar</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/collares2.jpg" alt="Collar Perla ARCH">
+          <div class="info">
+            <h3>Collar Perla Natural</h3>
+            <p class="price">$18.500</p>
+            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Collar%20Perla%20Natural%20de%20ARCH">Comprar</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Anillos -->
+  <section class="section" id="anillos">
+    <div class="wrap">
+      <h2 class="sec-title">Anillos</h2>
+      <div class="grid">
         <article class="card">
           <img src="https://archargentina.github.io/catalogoarch/assets/anillos.png" alt="Anillos ARCH">
           <div class="info">
@@ -92,77 +141,64 @@
             <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20los%20Anillos%20de%20ARCH">Comprar</a>
           </div>
         </article>
-
-        <!-- Producto 2 -->
         <article class="card">
-          <img src="assets/producto2.jpg" alt="Collar Minimal ARCH">
+          <img src="assets/anillos2.jpg" alt="Anillo Plata 925 ARCH">
           <div class="info">
-            <h3>Collar Minimal</h3>
-            <p class="price">$15.000</p>
-            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Collar%20Minimal%20de%20ARCH">Comprar</a>
+            <h3>Anillo Plata 925</h3>
+            <p class="price">$13.500</p>
+            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Anillo%20Plata%20925%20de%20ARCH">Comprar</a>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
 
-        <!-- Producto 3 -->
+  <!-- Sección: Pulseras -->
+  <section class="section" id="pulseras">
+    <div class="wrap">
+      <h2 class="sec-title">Pulseras</h2>
+      <div class="grid">
         <article class="card">
-          <img src="assets/producto3.jpg" alt="Pulsera Fina ARCH">
+          <img src="assets/pulseras1.jpg" alt="Pulsera Fina ARCH">
           <div class="info">
             <h3>Pulsera Fina</h3>
             <p class="price">$9.500</p>
             <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20la%20Pulsera%20Fina%20de%20ARCH">Comprar</a>
           </div>
         </article>
-
-        <!-- Producto 4 -->
         <article class="card">
-          <img src="assets/producto4.jpg" alt="Aros Perla ARCH">
+          <img src="assets/pulseras2.jpg" alt="Pulsera de Oro ARCH">
+          <div class="info">
+            <h3>Pulsera de Oro</h3>
+            <p class="price">$15.800</p>
+            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20la%20Pulsera%20de%20Oro%20de%20ARCH">Comprar</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Aros -->
+  <section class="section" id="aros">
+    <div class="wrap">
+      <h2 class="sec-title">Aros</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="assets/aros1.jpg" alt="Aros Perla ARCH">
           <div class="info">
             <h3>Aros Perla</h3>
             <p class="price">$10.000</p>
             <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20los%20Aros%20Perla%20de%20ARCH">Comprar</a>
           </div>
         </article>
-
-        <!-- Producto 5 -->
         <article class="card">
-          <img src="assets/producto5.jpg" alt="Producto 5 ARCH">
+          <img src="assets/aros2.jpg" alt="Aros Hoop Dorados ARCH">
           <div class="info">
-            <h3>Producto 5</h3>
-            <p class="price">$0.000</p>
-            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Producto%205%20de%20ARCH">Comprar</a>
+            <h3>Aros Hoop Dorados</h3>
+            <p class="price">$11.000</p>
+            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20los%20Aros%20Hoop%20Dorados%20de%20ARCH">Comprar</a>
           </div>
         </article>
-
-        <!-- Producto 6 -->
-        <article class="card">
-          <img src="assets/producto6.jpg" alt="Producto 6 ARCH">
-          <div class="info">
-            <h3>Producto 6</h3>
-            <p class="price">$0.000</p>
-            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Producto%206%20de%20ARCH">Comprar</a>
-          </div>
-        </article>
-
-        <!-- Producto 7 -->
-        <article class="card">
-          <img src="assets/producto7.jpg" alt="Producto 7 ARCH">
-          <div class="info">
-            <h3>Producto 7</h3>
-            <p class="price">$0.000</p>
-            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Producto%207%20de%20ARCH">Comprar</a>
-          </div>
-        </article>
-
-        <!-- Producto 8 -->
-        <article class="card">
-          <img src="assets/producto8.jpg" alt="Producto 8 ARCH">
-          <div class="info">
-            <h3>Producto 8</h3>
-            <p class="price">$0.000</p>
-            <a class="cta" target="_blank" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Producto%208%20de%20ARCH">Comprar</a>
-          </div>
-        </article>
-
       </div>
     </div>
   </section>
@@ -174,7 +210,7 @@
   </footer>
 
   <script>
-    // Animación scroll del banner
+    // Animación scroll del banner (reduce y desvanece)
     (function(){
       const hero = document.getElementById('hero');
       const clamp = (n,min,max)=>Math.min(Math.max(n,min),max);
