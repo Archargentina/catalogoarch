@@ -11,6 +11,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&display=swap" rel="stylesheet">
 
+  <!-- Meta para compartir -->
+  <meta property="og:title" content="ARCH · Catálogo">
+  <meta property="og:description" content="Joyería importada — elegancia, calidad y envíos a todo el país.">
+  <meta property="og:image" content="https://archargentina.github.io/catalogoarch/assets/hero_arch_only.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ARCH · Catálogo">
+  <meta name="twitter:description" content="Joyería importada — elegancia, calidad y envíos a todo el país.">
+  <meta name="twitter:image" content="https://archargentina.github.io/catalogoarch/assets/hero_arch_only.png">
+  <link rel="icon" href="assets/hero_arch_only.png" type="image/png">
+  <link rel="preload" as="image" href="assets/hero_arch_only.png">
+
   <style>
     :root{
       --prim:#556B2F;
@@ -33,87 +45,47 @@
       background:rgba(255,255,245,.50);
     }
 
-    .hero{
-      width:100%;
-      height:400px;
-      background:url('assets/hero_arch_only.png') center/cover no-repeat;
-      transform-origin:center top;will-change:transform,opacity;
-    }
+    /* Accesibilidad */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    a:focus-visible, .cta:focus-visible{outline:2px solid var(--prim); outline-offset:2px; border-radius:10px}
 
-    .topnav{
-      position:sticky;top:0;z-index:10;
-      background:rgba(255,255,245,.92);
-      border-bottom:1px solid rgba(0,0,0,.06);
-    }
-    .topnav .wrap{
-      display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center;
-      padding:10px 16px;
-    }
-    .topnav a{
-      color:var(--prim);text-decoration:none;font-weight:600;letter-spacing:.2px;
-      padding:8px 10px;border-radius:10px;
-    }
+    /* Banner full width */
+    .hero{width:100%;height:420px;background:url('assets/hero_arch_only.png') center/cover no-repeat;transform-origin:center top;will-change:transform,opacity}
+
+    /* Top nav */
+    .topnav{position:sticky;top:0;z-index:10;background:rgba(255,255,245,.92);border-bottom:1px solid rgba(0,0,0,.06)}
+    .topnav .wrap{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center;padding:10px 16px}
+    .topnav a{color:var(--prim);text-decoration:none;font-weight:600;letter-spacing:.2px;padding:8px 10px;border-radius:10px}
     .topnav a:hover{background:#e9ead6}
+    .topnav a.active{background:#dfe3c9}
 
-    .section{
-      background:transparent;
-      padding:56px 0 64px;
-      scroll-margin-top:72px;
-    }
+    /* Secciones */
+    .section{background:transparent;padding:56px 0 64px;scroll-margin-top:72px}
     .wrap{max-width:1200px;margin:0 auto;padding:0 22px}
     .sec-title{margin:0 0 26px;text-align:center;color:#2b2b2b;font-size:24px;font-weight:600;letter-spacing:.3px}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:36px;
-    }
-    .card{
-      background:#fff;border:1px solid rgba(0,0,0,.08);
-      border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;
-      box-shadow:var(--shadow);
-      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-      content-visibility:auto;
-      contain-intrinsic-size:1px 420px;
-    }
+    /* Grid + Cards */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:36px}
+    .card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;content-visibility:auto;contain-intrinsic-size:1px 420px}
     .card:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:rgba(0,0,0,.12)}
-    .card img{
-      width:100%;
-      aspect-ratio:4/3;
-      object-fit:cover;
-      display:block;background:#fafafa;
-    }
+    .card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#fafafa}
     .info{padding:18px 18px 20px}
     .info h3{margin:0 0 10px;font-size:18px;font-weight:600;letter-spacing:.2px}
     .price{margin:0 0 14px;color:var(--prim);font-weight:600;font-size:16px}
-    .cta{
-      display:inline-block;background:var(--prim);color:#fff;text-decoration:none;
-      padding:11px 16px;border-radius:10px;font-weight:600;letter-spacing:.3px
-    }
+    .cta{display:inline-block;background:var(--prim);color:#fff;text-decoration:none;padding:11px 16px;border-radius:10px;font-weight:600;letter-spacing:.3px}
     .cta:hover{filter:brightness(.93)}
 
-    .fab-container{
-      position:fixed; right:16px; bottom:16px;
-      display:flex; flex-direction:column; gap:14px; z-index:20;
-    }
-    .fab{
-      width:48px; height:48px; border-radius:50%;
-      display:flex; align-items:center; justify-content:center;
-      background:var(--prim); color:#fff;
-      border:none;
-      box-shadow:0 6px 14px rgba(0,0,0,.18);
-      text-decoration:none;
-      transition:transform .15s ease, box-shadow .15s ease;
-    }
-    .fab svg{width:22px;height:22px;fill:currentColor}
+    /* FABs */
+    .fab-container{position:fixed; right:16px; bottom:16px; display:flex; flex-direction:column; gap:14px; z-index:20}
+    .fab{width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--prim); color:#fff; border:none; box-shadow:0 6px 14px rgba(0,0,0,.18); text-decoration:none; transition:transform .15s ease, box-shadow .15s ease}
     .fab:hover{transform:translateY(-2px); box-shadow:0 10px 22px rgba(0,0,0,.18)}
+    .fab img{width:22px; height:22px; display:block}
 
-    footer{
-      background:#eee;text-align:center;padding:22px;line-height:1.6;font-size:14px
-    }
+    footer{background:#eee;text-align:center;padding:22px;line-height:1.6;font-size:14px}
     footer a{color:var(--prim);text-decoration:none;font-weight:600}
     footer a:hover{text-decoration:underline}
-    /* ===== Versión mobile (FABs reducidos y solo WhatsApp) ===== */
+
+    /* Mobile tweaks */
     @media (max-width: 640px){
       .fab-container{ right:12px; bottom:12px; gap:10px }
       .fab{ width:44px; height:44px }
@@ -121,12 +93,15 @@
       .grid{ grid-template-columns:repeat(auto-fit,minmax(260px,1fr)) }
       .hero{ height:300px }
     }
-</style>
+  </style>
 </head>
 <body>
+  <h1 class="sr-only">ARCH · Catálogo de Joyería</h1>
 
+  <!-- Banner -->
   <header class="hero" id="hero"></header>
 
+  <!-- Nav de categorías -->
   <nav class="topnav">
     <div class="wrap">
       <a href="#collares">Collares</a>
@@ -141,24 +116,26 @@
     <div class="wrap">
       <h2 class="sec-title">Collares</h2>
       <div class="grid">
-        <article class="card">
-          <img loading="lazy" decoding="async" width="800" height="600"
-               src="https://archargentina.github.io/catalogoarch/assets/collarminimal.png"
-               alt="Collar Minimal ARCH">
+        <article class="card" itemscope itemtype="https://schema.org/Product">
+          <img loading="lazy" decoding="async" width="800" height="600" src="https://archargentina.github.io/catalogoarch/assets/collarminimal.png" alt="Collar Minimal ARCH" itemprop="image">
           <div class="info">
-            <h3>Collar Minimal</h3>
-            <p class="price">$15.000</p>
-            <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Collar%20Minimal%20de%20ARCH">Comprar</a>
+            <h3 itemprop="name">Collar Minimal</h3>
+            <p class="price" data-price="15000">$15.000</p>
+            <a class="cta" target="_blank" rel="noopener" href="#" data-wa>Comprar</a>
+          </div>
+          <meta itemprop="brand" content="ARCH"/>
+          <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="sr-only">
+            <meta itemprop="priceCurrency" content="ARS"/>
+            <meta itemprop="price" content="15000"/>
+            <link itemprop="availability" href="https://schema.org/InStock"/>
           </div>
         </article>
         <article class="card">
-          <img loading="lazy" decoding="async" width="800" height="600"
-               src="https://archargentina.github.io/catalogoarch/assets/collares2.png"
-               alt="Collar Anillo Dorado ARCH">
+          <img loading="lazy" decoding="async" width="800" height="600" src="https://archargentina.github.io/catalogoarch/assets/collares2.png" alt="Collar Anillo Dorado ARCH">
           <div class="info">
             <h3>Collar Anillo Dorado</h3>
-            <p class="price">$25.500</p>
-            <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Collar%20Anillo%20Dorado%20de%20ARCH">Comprar</a>
+            <p class="price" data-price="25500">$25.500</p>
+            <a class="cta" target="_blank" rel="noopener" href="#" data-wa>Comprar</a>
           </div>
         </article>
       </div>
@@ -171,23 +148,19 @@
       <h2 class="sec-title">Anillos</h2>
       <div class="grid">
         <article class="card">
-          <img loading="lazy" decoding="async" width="800" height="600"
-               src="https://archargentina.github.io/catalogoarch/assets/anillos.png"
-               alt="Set de Anillos ARCH">
+          <img loading="lazy" decoding="async" width="800" height="600" src="https://archargentina.github.io/catalogoarch/assets/anillos.png" alt="Set de Anillos ARCH">
           <div class="info">
             <h3>Set de Anillos</h3>
-            <p class="price">$12.000</p>
-            <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20los%20Anillos%20de%20ARCH">Comprar</a>
+            <p class="price" data-price="12000">$12.000</p>
+            <a class="cta" target="_blank" rel="noopener" href="#" data-wa>Comprar</a>
           </div>
         </article>
         <article class="card">
-          <img loading="lazy" decoding="async" width="800" height="600"
-               src="https://archargentina.github.io/catalogoarch/assets/anillos2.png"
-               alt="Anillo Plata 925 ARCH">
+          <img loading="lazy" decoding="async" width="800" height="600" src="https://archargentina.github.io/catalogoarch/assets/anillos2.png" alt="Anillo Plata 925 ARCH">
           <div class="info">
             <h3>Anillo Plata 925</h3>
-            <p class="price">$13.500</p>
-            <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20el%20Anillo%20Plata%20925%20de%20ARCH">Comprar</a>
+            <p class="price" data-price="13500">$13.500</p>
+            <a class="cta" target="_blank" rel="noopener" href="#" data-wa>Comprar</a>
           </div>
         </article>
       </div>
@@ -200,23 +173,19 @@
       <h2 class="sec-title">Pulseras</h2>
       <div class="grid">
         <article class="card">
-          <img loading="lazy" decoding="async" width="800" height="600"
-               src="https://archargentina.github.io/catalogoarch/assets/pulserafina.png"
-               alt="Pulsera Fina ARCH">
+          <img loading="lazy" decoding="async" width="800" height="600" src="https://archargentina.github.io/catalogoarch/assets/pulserafina.png" alt="Pulsera Fina ARCH">
           <div class="info">
             <h3>Pulsera Fina</h3>
-            <p class="price">$9.500</p>
-            <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20la%20Pulsera%20Fina%20de%20ARCH">Comprar</a>
+            <p class="price" data-price="9500">$9.500</p>
+            <a class="cta" target="_blank" rel="noopener" href="#" data-wa>Comprar</a>
           </div>
         </article>
         <article class="card">
-          <img loading="lazy" decoding="async" width="800" height="600"
-               src="https://archargentina.github.io/catalogoarch/assets/pulseras2.png"
-               alt="Pulsera con Joyas ARCH">
+          <img loading="lazy" decoding="async" width="800" height="600" src="https://archargentina.github.io/catalogoarch/assets/pulseras2.png" alt="Pulsera con Joyas ARCH">
           <div class="info">
             <h3>Pulsera con Joyas 0 Chucu</h3>
-            <p class="price">$15.800.000</p>
-            <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20la%20Pulsera%20con%20Joyas%20de%20ARCH">Comprar</a>
+            <p class="price" data-price="15800000">$15.800.000</p>
+            <a class="cta" target="_blank" rel="noopener" href="#" data-wa>Comprar</a>
           </div>
         </article>
       </div>
@@ -229,23 +198,19 @@
       <h2 class="sec-title">Aros</h2>
       <div class="grid">
         <article class="card">
-          <img loading="lazy" decoding="async" width="800" height="600"
-               src="https://archargentina.github.io/catalogoarch/assets/aros1.png"
-               alt="Aros Dorados ARCH">
+          <img loading="lazy" decoding="async" width="800" height="600" src="https://archargentina.github.io/catalogoarch/assets/aros1.png" alt="Aros Dorados ARCH">
           <div class="info">
             <h3>Aros Dorados</h3>
-            <p class="price">$10.000</p>
-            <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20los%20Aros%20Dorados%20de%20ARCH">Comprar</a>
+            <p class="price" data-price="10000">$10.000</p>
+            <a class="cta" target="_blank" rel="noopener" href="#" data-wa>Comprar</a>
           </div>
         </article>
         <article class="card">
-          <img loading="lazy" decoding="async" width="800" height="600"
-               src="https://archargentina.github.io/catalogoarch/assets/aros2.png"
-               alt="Aros con Joyas ARCH">
+          <img loading="lazy" decoding="async" width="800" height="600" src="https://archargentina.github.io/catalogoarch/assets/aros2.png" alt="Aros con Joyas ARCH">
           <div class="info">
             <h3>Aros con Joyas Masivos Bro</h3>
-            <p class="price">$1.100.000</p>
-            <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5491165626328?text=Hola!%20Quiero%20comprar%20los%20Aros%20con%20Joyas%20de%20ARCH">Comprar</a>
+            <p class="price" data-price="1100000">$1.100.000</p>
+            <a class="cta" target="_blank" rel="noopener" href="#" data-wa>Comprar</a>
           </div>
         </article>
       </div>
@@ -258,14 +223,79 @@
     Instagram <a target="_blank" rel="noopener" href="https://www.instagram.com/arch.argentina">@arch.argentina</a>
   </footer>
 
-  <!-- FABs con íconos oficiales -->
-  <div class="fab-container">
+  <!-- FABs con íconos nítidos desde CDN (blanco) -->
+  <div class="fab-container" aria-label="Accesos rápidos">
     <a class="fab" aria-label="WhatsApp" href="https://wa.me/5491165626328" target="_blank" rel="noopener">
-      <img src="https://cdn.simpleicons.org/whatsapp/ffffff" width="22" height="22" alt="WhatsApp" style="display:block"/>
+      <img src="https://cdn.simpleicons.org/whatsapp/ffffff" width="22" height="22" alt="WhatsApp"/>
     </a>
     <a class="fab" aria-label="Instagram" href="https://www.instagram.com/arch.argentina" target="_blank" rel="noopener">
-      <img src="https://cdn.simpleicons.org/instagram/ffffff" width="22" height="22" alt="Instagram" style="display:block"/>
+      <img src="https://cdn.simpleicons.org/instagram/ffffff" width="22" height="22" alt="Instagram"/>
     </a>
   </div>
+
+  <script>
+    // Animación del banner con rAF
+    (function(){
+      const hero = document.getElementById('hero');
+      const clamp = (n,min,max)=>Math.min(Math.max(n,min),max);
+      let ticking = false;
+      const update = () => {
+        const p = clamp(window.scrollY / 300, 0, 1);
+        hero.style.transform = `scale(${1 - p*0.08})`;
+        hero.style.opacity   = String(1 - p*0.35);
+        ticking = false;
+      };
+      window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(update); ticking = true; } }, { passive:true });
+    })();
+
+    // Volver al tope al recargar
+    window.onbeforeunload = () => { window.scrollTo(0,0); };
+
+    // 1) Menú activo por sección
+    (function(){
+      const links=[...document.querySelectorAll('.topnav a')];
+      const sections=[...document.querySelectorAll('section[id]')];
+      const byId = id => links.find(a=>a.getAttribute('href')==="#"+id);
+      const io=new IntersectionObserver(entries=>{
+        entries.forEach(e=>{ const a=byId(e.target.id); if(!a) return; a.classList.toggle('active', e.isIntersecting); });
+      },{rootMargin:'-40% 0px -50% 0px', threshold:0});
+      sections.forEach(s=>io.observe(s));
+    })();
+
+    // 2) Formateo de precios y link de WhatsApp automático
+    (function(){
+      const fmt = new Intl.NumberFormat('es-AR');
+      document.querySelectorAll('.card').forEach(card=>{
+        const title = card.querySelector('h3')?.textContent?.trim() || 'Producto ARCH';
+        const priceEl = card.querySelector('.price');
+        const wa = card.querySelector('[data-wa]');
+        if(priceEl){
+          const raw = Number(priceEl.getAttribute('data-price'));
+          if(!Number.isNaN(raw)) priceEl.textContent = `$ ${fmt.format(raw)}`;
+        }
+        if(wa){
+          const msg = `Hola! Quiero comprar ${title} de ARCH`;
+          wa.href = `https://wa.me/5491165626328?text=${encodeURIComponent(msg)}`;
+        }
+      });
+    })();
+  </script>
+
+  <!-- JSON-LD del primer producto -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Product",
+    "name":"Collar Minimal",
+    "image":"https://archargentina.github.io/catalogoarch/assets/collarminimal.png",
+    "brand":"ARCH",
+    "offers":{
+      "@type":"Offer",
+      "priceCurrency":"ARS",
+      "price":"15000",
+      "availability":"https://schema.org/InStock"
+    }
+  }
+  </script>
 </body>
 </html>
