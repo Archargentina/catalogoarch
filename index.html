@@ -113,7 +113,15 @@
     }
     footer a{color:var(--prim);text-decoration:none;font-weight:600}
     footer a:hover{text-decoration:underline}
-  </style>
+    /* ===== Versión mobile (FABs reducidos y solo WhatsApp) ===== */
+    @media (max-width: 640px){
+      .fab-container{ right:12px; bottom:12px; gap:10px }
+      .fab{ width:44px; height:44px }
+      .fab-container a[aria-label="Instagram"]{ display:none }
+      .grid{ grid-template-columns:repeat(auto-fit,minmax(260px,1fr)) }
+      .hero{ height:300px }
+    }
+</style>
 </head>
 <body>
 
